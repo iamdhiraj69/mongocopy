@@ -1,7 +1,7 @@
-# mongo-copy v1.1.0 - New Features Summary
+# mongocopy v1.1.0 - New Features Summary
 
 ## Overview
-Version 1.1.0 introduces major enhancements to mongo-copy, including progress visualization, incremental backups, index management, schema validation, and performance optimizations.
+Version 1.1.0 introduces major enhancements to mongocopy, including progress visualization, incremental backups, index management, schema validation, and performance optimizations.
 
 ---
 
@@ -19,10 +19,10 @@ Version 1.1.0 introduces major enhancements to mongo-copy, including progress vi
 **CLI Usage**:
 ```bash
 # Progress enabled by default
-mongo-copy --all
+mongocopy --all
 
 # Disable progress bars
-mongo-copy --all --no-progress
+mongocopy --all --no-progress
 ```
 
 **API Usage**:
@@ -49,7 +49,7 @@ await copyCollections({
 **CLI Usage**:
 ```bash
 # Copy docs updated since Jan 1, 2024
-mongo-copy --all --incremental \
+mongocopy --all --incremental \
   --timestamp-field updatedAt \
   --since 2024-01-01T00:00:00Z
 ```
@@ -83,10 +83,10 @@ await copyCollections({
 **CLI Usage**:
 ```bash
 # Copy collections with their indexes
-mongo-copy --all --copy-indexes
+mongocopy --all --copy-indexes
 
 # Export to JSON with index definitions
-mongo-copy --all --export-json --copy-indexes --output-dir ./backup
+mongocopy --all --export-json --copy-indexes --output-dir ./backup
 ```
 
 **API Usage**:
@@ -118,7 +118,7 @@ await copyCollections({
 **CLI Usage**:
 ```bash
 # Validate schema before copying
-mongo-copy --all --validate-schema
+mongocopy --all --validate-schema
 ```
 
 **API Usage**:
@@ -224,7 +224,7 @@ npm test
 
 ### Example 1: Full Backup with Everything
 ```bash
-mongo-copy --all \
+mongocopy --all \
   --copy-indexes \
   --export-json \
   --output-dir ./full-backup \
@@ -234,7 +234,7 @@ mongo-copy --all \
 ### Example 2: Incremental Daily Sync
 ```bash
 # In daily cron job
-mongo-copy --all \
+mongocopy --all \
   --incremental \
   --timestamp-field updatedAt \
   --since $(date -d "yesterday" -Iseconds) \
@@ -243,14 +243,14 @@ mongo-copy --all \
 
 ### Example 3: Safe Production Migration
 ```bash
-mongo-copy --all \
+mongocopy --all \
   --validate-schema \
   --copy-indexes \
   --batch-size 10000 \
   --dry-run  # Test first
 
 # Then run for real
-mongo-copy --all \
+mongocopy --all \
   --validate-schema \
   --copy-indexes \
   --batch-size 10000
@@ -258,7 +258,7 @@ mongo-copy --all \
 
 ### Example 4: Programmatic Use
 ```javascript
-import { copyCollections } from 'mongo-copy';
+import { copyCollections } from 'mongocopy';
 
 // Full migration with all features
 const results = await copyCollections({
@@ -300,7 +300,7 @@ All existing functionality remains backward compatible. New features are opt-in 
 
 Simply update and start using new features:
 ```bash
-npm update mongo-copy
+npm update mongocopy
 ```
 
 ---
@@ -317,7 +317,7 @@ npm update mongo-copy
 
 ## 🎉 Summary
 
-Version 1.1.0 transforms mongo-copy from a basic copy tool into a production-grade data migration and backup solution with:
+Version 1.1.0 transforms mongocopy from a basic copy tool into a production-grade data migration and backup solution with:
 - Visual feedback (progress bars)
 - Intelligent syncing (incremental backups)
 - Complete migrations (index copying)

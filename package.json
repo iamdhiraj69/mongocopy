@@ -1,11 +1,11 @@
 {
-  "name": "mongo-copy",
+  "name": "mongocopy",
   "version": "1.1.0",
   "description": "A lightweight, production-ready CLI and Node.js utility for MongoDB data migration, backup, and cloning. Features include progress bars, incremental backups, index copying, schema validation, JSON export/import, and optimized batch processing for large datasets.",
   "type": "module",
   "main": "src/api.js",
   "bin": {
-    "mongo-copy": "./src/cli/index.js"
+    "mongocopy": "./src/cli/index.js"
   },
   "files": [
     "src/**/*",
@@ -61,10 +61,10 @@
   "author": "Dhiraj (https://github.com/iamdhiraj69)",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/iamdhiraj69/Mongo-Copy.git"
+    "url": "git+https://github.com/iamdhiraj69/mongocopy.git"
   },
-  "homepage": "https://github.com/iamdhiraj69/Mongo-Copy#readme",
+  "homepage": "https://github.com/iamdhiraj69/mongocopy#readme",
   "bugs": {
-    "url": "https://github.com/iamdhiraj69/Mongo-Copy/issues"
+    "url": "https://github.com/iamdhiraj69/mongocopy/issues"
   }
 }

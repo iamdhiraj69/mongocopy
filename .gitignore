@@ -14,7 +14,7 @@ pnpm-debug.log*
 # Logs
 logs/
 *.log
-mongo-copy.log
+mongocopy.log
 
 # Backup & JSON Exports
 backup/

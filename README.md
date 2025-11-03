@@ -1,10 +1,10 @@
-# 🧩 mongo-copy
+# 🧩 mongocopy
 
-[![CI](https://github.com/iamdhiraj69/Mongo-Copy/actions/workflows/ci.yml/badge.svg)](https://github.com/iamdhiraj69/Mongo-Copy/actions/workflows/ci.yml)
-[![npm version](https://badge.fury.io/js/mongo-copy.svg)](https://www.npmjs.com/package/mongo-copy)
+[![CI](https://github.com/iamdhiraj69/mongocopy/actions/workflows/ci.yml/badge.svg)](https://github.com/iamdhiraj69/mongocopy/actions/workflows/ci.yml)
+[![npm version](https://badge.fury.io/js/mongocopy.svg)](https://www.npmjs.com/package/mongocopy)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**mongo-copy** is a developer-friendly CLI tool to copy, export, import, or back up MongoDB collections and databases - safely, quickly, and locally - without complex MongoDB shell commands.
+**mongocopy** is a developer-friendly CLI tool to copy, export, import, or back up MongoDB collections and databases - safely, quickly, and locally - without complex MongoDB shell commands.
 
 ---
 
@@ -29,21 +29,21 @@
 ### Global Installation (Recommended)
 
 ```bash
-npm install -g mongo-copy
+npm install -g mongocopy
 ```
 
 ### Local Project Installation
 
 ```bash
-npm install mongo-copy
+npm install mongocopy
 ```
 
 ### Development Installation
 
 ```bash
 # Clone from GitHub
-git clone https://github.com/iamdhiraj69/Mongo-Copy.git
-cd mongo-copy
+git clone https://github.com/iamdhiraj69/mongocopy.git
+cd mongocopy
 npm install
 
 # Link globally for testing
@@ -64,66 +64,66 @@ DB_NAME=my_database
 
 ### Copy All Collections
 ```bash
-mongo-copy --all
+mongocopy --all
 ```
 
 ### Copy Specific Collections
 ```bash
-mongo-copy --collections users,posts
+mongocopy --collections users,posts
 ```
 
 ### Preview Without Writing (Dry Run)
 ```bash
-mongo-copy --all --dry-run
+mongocopy --all --dry-run
 ```
 
 ### Copy with Custom Batch Size
 ```bash
-mongo-copy --all --batch-size 500
+mongocopy --all --batch-size 500
 ```
 
 ### Skip Confirmation
 ```bash
-mongo-copy --all --yes
+mongocopy --all --yes
 ```
 
 ### Copy with Indexes
 ```bash
-mongo-copy --all --copy-indexes
+mongocopy --all --copy-indexes
 ```
 
 ### Incremental Backup (only new/updated documents)
 ```bash
 # Copy documents updated in the last 7 days
-mongo-copy --all --incremental --timestamp-field updatedAt --since 2024-01-01T00:00:00Z
+mongocopy --all --incremental --timestamp-field updatedAt --since 2024-01-01T00:00:00Z
 ```
 
 ### Validate Schema Before Copy
 ```bash
-mongo-copy --all --validate-schema
+mongocopy --all --validate-schema
 ```
 
 ### Disable Progress Bars
 ```bash
-mongo-copy --all --no-progress
+mongocopy --all --no-progress
 ```
 
 ## 💾 Backup / Restore JSON
 
 ### Export Collections to JSON
 ```bash
-mongo-copy --all --export-json
+mongocopy --all --export-json
 ```
 All files will be saved to the `backup/` folder (auto-created).
 
 ### Import JSON Back into MongoDB
 ```bash
-mongo-copy --import-json
+mongocopy --import-json
 ```
 
 You can change the backup directory using:
 ```bash
-mongo-copy --export-json --output-dir ./my_backup
+mongocopy --export-json --output-dir ./my_backup
 ```
 
 ## ⚙️ Environment Variables
@@ -135,41 +135,41 @@ mongo-copy --export-json --output-dir ./my_backup
 | DB_NAME | Database name | Required |
 | BATCH_SIZE | Documents per insert batch | 1000 |
 | LOG_TO_FILE | Write logs to file (true/false) | false |
-| LOG_PATH | Log file path (if enabled) | ./mongo-copy.log |
+| LOG_PATH | Log file path (if enabled) | ./mongocopy.log |
 | BACKUP_DIR | JSON export/import folder | ./backup |
 
 ## 🥇 CLI Examples
 
 ### Basic Copy
 ```bash
-mongo-copy --collections users,posts --batch-size 2000 --yes
+mongocopy --collections users,posts --batch-size 2000 --yes
 ```
 Copies only users and posts collections using batch size 2000 without confirmation.
 
 ### Full Backup with Indexes
 ```bash
-mongo-copy --all --copy-indexes --export-json --output-dir ./full-backup
+mongocopy --all --copy-indexes --export-json --output-dir ./full-backup
 ```
 Exports all collections and their indexes to JSON files.
 
 ### Incremental Sync
 ```bash
-mongo-copy --all --incremental --timestamp-field updatedAt --since 2024-01-01T00:00:00Z
+mongocopy --all --incremental --timestamp-field updatedAt --since 2024-01-01T00:00:00Z
 ```
 Copies only documents updated since January 1, 2024.
 
 ### Safe Production Copy
 ```bash
-mongo-copy --all --validate-schema --copy-indexes --batch-size 5000
+mongocopy --all --validate-schema --copy-indexes --batch-size 5000
 ```
 Validates schema compatibility and copies with indexes using larger batches.
 
 ## 💻 Programmatic API Usage
 
-Use mongo-copy in your Node.js applications:
+Use mongocopy in your Node.js applications:
 
 ```javascript
-import { copyCollections } from 'mongo-copy';
+import { copyCollections } from 'mongocopy';
 
 // Copy specific collections
 const results = await copyCollections({
@@ -236,7 +236,7 @@ To use it as a global CLI after publishing, add this to package.json:
 ```json
 {
   "bin": {
-    "mongo-copy": "./src/index.js"
+    "mongocopy": "./src/index.js"
   }
 }
 ```
@@ -244,7 +244,7 @@ To use it as a global CLI after publishing, add this to package.json:
 Then install globally:
 ```bash
 npm i -g .
-mongo-copy --help
+mongocopy --help
 ```
 
 ## 🧩 Roadmap
